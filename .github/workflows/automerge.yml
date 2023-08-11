@@ -1,6 +1,7 @@
 name: Automerge
 
 on:
+  workflow_dispatch:        # allow manual trigger
   pull_request_target:    	# Auto-merge a PR
     types:                	#
       - opened            	# PR is updated

@@ -1,6 +1,7 @@
 name: Bump Homebrew Casks in this tap
 
 on:
+  workflow_dispatch:                          # allow manual trigger
   schedule:
     - cron:  '0 23 * * *'                     # every 23h
 
