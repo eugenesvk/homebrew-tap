@@ -1,0 +1,20 @@
+name: Bump Homebrew Casks in this tap
+
+on:
+  schedule:
+    - cron:  '0 23 * * *'                     # every 23h
+
+jobs:
+  update-tap-casks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Update Homebrew Cask
+      uses: eugenesvk/action-homebrew-bump-cask@3.8.4
+      with:
+        tap         : eugenesvk/homebrew-tap  # [opt] |homebrew/core| Bump all outdated casks in this tap
+        livecheck   : true                    # [opt] Use `brew livecheck`
+        token       : ${{secrets.TOKEN}}      # [req] Custom GitHub access token with the 'public_repo'
+        # force     : false                   # [opt] Don't check for already open PR
+        # org       : ORG                     # [opt] Create tap repo fork in organization
+        # cask      : C-1, C-2                # [opt] Bump only these casks if outdated
