@@ -1,0 +1,20 @@
+name: Bump Homebrew Formulae in this tap
+
+on:
+  schedule:
+    - cron:  '0 23 * * *'                     # every 23h
+
+jobs:
+  update-tap-formulae:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Update Homebrew formulae
+      uses: dawidd6/action-homebrew-bump-formula@v3.10.0
+      with:
+        tap         : eugenesvk/homebrew-tap  # [opt] |homebrew/core| Bump all outdated formulae in this tap
+        livecheck   : true                    # [opt] Use `brew livecheck`
+        token       : ${{secrets.TOKEN}}      # [req] Custom GitHub access token with 'public_repo' scope enabled
+        # force     : false                   # [opt] Don't check for already open PR
+        # org       : ORG                     # [opt] Create tap repo fork in organization
+        # formula   : f1, f2                  # [opt] Bump only these formulae if outdated
