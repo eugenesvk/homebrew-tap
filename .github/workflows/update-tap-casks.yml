@@ -7,7 +7,7 @@ on:
 
 jobs:
   update-tap-casks:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: Update Homebrew Cask
