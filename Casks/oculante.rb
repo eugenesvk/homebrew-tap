@@ -11,13 +11,11 @@ cask "oculante" do
     url :stable
     regex(/^(\d{1,3}\.\d{1,3}\.\d{1,3})$/i)
     strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.gsub(/v/, "") }.compact
+      tags.map { |tag| tag[regex, 1]&.delete("v") }.compact
     end
   end
 
   app "oculante.app"
 
-  zap trash: [
-    "~/Library/Saved Application State/com.github.woelper.oculante.savedState",
-  ]
+  zap trash: "~/Library/Saved Application State/com.github.woelper.oculante.savedState"
 end

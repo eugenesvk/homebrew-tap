@@ -9,7 +9,7 @@ class DupeKrill < Formula
     url :stable
     regex(/^(v\d{1,2}\.\d{1,2}\.\d{1,2})$/i)
     strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.gsub(/v/, "") }.compact
+      tags.map { |tag| tag[regex, 1]&.delete("v") }.compact
     end
   end
 
