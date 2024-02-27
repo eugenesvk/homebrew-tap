@@ -1,6 +1,6 @@
 cask "oculante" do
-  version "0.8.11"
-  sha256 "3fea1cc95d4e493a4a91d6a2a06d39dbfadc3d34c376760c47f5a8663a9c2948"
+  version "0.8.13"
+  sha256 "d1ac266d5b46ec7927cdb2544eaa789c07700420fbda1a5d4a304ab3c37ce9f5"
 
   url "https://github.com/woelper/oculante/releases/download/#{version}/oculante_mac.zip"
   name "oculante"
@@ -11,7 +11,7 @@ cask "oculante" do
     url :stable
     regex(/^(\d{1,3}\.\d{1,3}\.\d{1,3})$/i)
     strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.delete("v") }.compact
+      tags.filter_map { |tag| tag[regex, 1]&.delete("v") }
     end
   end
 
