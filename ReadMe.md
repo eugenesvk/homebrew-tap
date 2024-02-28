@@ -32,7 +32,7 @@ brew upgrade # update apps
 brew uninstall oculante
 brew uninstall dupe-krill
 ```
-Or 
+Or
 ```sh
 brew uninstall --zap oculante # remove user settings at `~/Library/Saved Application State/com.github.woelper.oculante.savedState`
 brew untap eugenesvk/oculante # remove app database (tap)
