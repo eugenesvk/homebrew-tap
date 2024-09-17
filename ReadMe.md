@@ -1,5 +1,5 @@
 <p align="center">
-A temporary repo few a Homebrew apps not yet in the main tap
+A temporary repo for a few Homebrew apps not yet in the main tap
 </p>
 
 ### GUI apps
