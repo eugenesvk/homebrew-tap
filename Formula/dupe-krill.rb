@@ -8,8 +8,13 @@ class DupeKrill < Formula
   livecheck do
     url :stable
     regex(/^(v\d{1,2}\.\d{1,2}\.\d{1,2})$/i)
-    strategy :git do |tags, regex|
-      tags.filter_map { |tag| tag[regex, 1]&.delete("v") }
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+        match = release["tag_name"]&.match(regex)
+        next if match.blank?
+        match[1]
+      end
     end
   end
 
