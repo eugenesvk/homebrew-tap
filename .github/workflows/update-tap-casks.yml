@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Update Homebrew Cask
-      uses: eugenesvk/action-homebrew-bump-cask@a05fd49892799eade237259963d787ba0143dab1 #3.8.5, commit to avoid security issues since tags can be changed
+      uses: eugenesvk/action-homebrew-bump-cask@c5357e045eb291820713d22f7d1a2a379b409ddd #3.8.5 git 25-07, commit to avoid security issues since tags can be changed
       with:
         tap         : eugenesvk/homebrew-tap  # [opt] |homebrew/core| Bump all outdated casks in this tap
         livecheck   : true                    # [opt] Use `brew livecheck`
